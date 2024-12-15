@@ -24,7 +24,14 @@ Route::get('/pemesanans', [PemesananController::class, 'index']);
 Route::post('/pemesanan', [PemesananController::class, 'create']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
 Route::delete('/pemesanan/{id}', [PemesananController::class, 'delete']);
-
+Route::prefix('pemesanan')->group(function () {
+          Route::get('/', [PemesananController::class, 'index']);
+          Route::post('/', [PemesananController::class, 'store']);
+          Route::get('/{id}', [PemesananController::class, 'show']);
+          Route::put('/{id}', [PemesananController::class, 'update']);
+          Route::delete('/{id}', [PemesananController::class, 'destroy']);
+          Route::patch('/{id}/status', [PemesananController::class, 'updateStatus']);
+      });
 Route::get('/payment/{id}', [PaymentController::class, 'getPayment']);
 Route::get('/payments', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'create']);
