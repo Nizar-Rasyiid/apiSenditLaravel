@@ -14,9 +14,9 @@ class PemesananController extends Controller
         return response()->json($pemesanans);
     }
 
-    public function show($id)
+    public function show($id_pemesanan)
     {
-        $pemesanan = Pemesanan::find($id);
+        $pemesanan = Pemesanan::find($id_pemesanan);
         if (is_null($pemesanan)) {
             return response()->json(['message' => 'Pemesanan not found'], 404);
         }

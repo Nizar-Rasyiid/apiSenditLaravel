@@ -19,7 +19,7 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('/user/{id}', [UserController::class, 'getUser']);
 Route::get('/users', [UserController::class, 'index']);
-Route::get('/pemesanan/{id}', [PemesananController::class, 'getPemesanan']);
+Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::get('/pemesanans', [PemesananController::class, 'index']);
 Route::post('/pemesanan', [PemesananController::class, 'create']);
 Route::put('/pemesanan/{id}', [PemesananController::class, 'update']);
