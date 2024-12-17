@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,11 @@ Route::get('/payments', [PaymentController::class, 'index']);
 Route::post('/payment', [PaymentController::class, 'create']);
 Route::put('/payment/{id}', [PaymentController::class, 'update']);
 Route::delete('/payment/{id}', [PaymentController::class, 'delete']);
+
+
+// Routes untuk FAQ
+Route::get('/faqs', [FAQController::class, 'index']);
+Route::post('/faqs', [FAQController::class, 'store']);
+Route::get('/faqs/{id}', [FAQController::class, 'show']); 
+Route::put('/faqs/{id}', [FAQController::class, 'update']); 
+Route::delete('/faqs/{id}', [FAQController::class, 'destroy']); 
