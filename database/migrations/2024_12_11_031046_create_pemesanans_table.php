@@ -22,6 +22,11 @@ return new class extends Migration
             $table->string('nama_penerima');
             $table->unsignedBigInteger('id_kurir');
             $table->foreign('id_kurir')->references('id_user')->on('users')->onDelete('cascade');
+            $table->string('no_hp_penerima')->nullable();
+            $table->string('jenis_paket')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->string('nama_pengirim')->nullable();
+            $table->string('no_hp_pengirim')->nullable();
             $table->timestamps();
         });
     }

@@ -19,5 +19,10 @@ protected $fillable = [
     'status',
     'nama_penerima',
     'id_kurir',
+    'no_hp_penerima',
+    'jenis_paket',
+    'keterangan',
+    'nama_pengirim',
+    'no_hp_pengirim'
 ];
 }

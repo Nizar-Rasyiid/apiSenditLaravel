@@ -21,4 +21,9 @@ class UserController extends Controller
             return response()->json(['message' => 'User not found'], 404);
         }
     }
+    public function store(Request $request)
+    {
+        $user = User::create($request->all());
+        return response()->json($user, 201);
+    }
 }

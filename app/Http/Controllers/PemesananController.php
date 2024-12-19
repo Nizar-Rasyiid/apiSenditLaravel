@@ -27,12 +27,17 @@ class PemesananController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id_user' => 'required|exists:users,id_user',
-            'jarak' => 'required|integer',
-            'lokasi_jemput' => 'required|string',
-            'lokasi_tujuan' => 'required|string',
-            'status' => 'required|in:On Progress,Selesai',
-            'nama_penerima' => 'required|string',
+            'jarak' => 'required|integer|numeric',
+            'lokasi_jemput' => 'required|string|string',
+            'lokasi_tujuan' => 'required|string|string',
+            'status' => 'required|in:On Progress,Selesai|string',
+            'nama_penerima' => 'required|string|string',
             'id_kurir' => 'required|exists:users,id_user',
+            'no_hp_penerima' => 'string',
+            'jenis_paket' => 'string',
+            'keterangan' => 'string',
+            'nama_pengirim' => 'string',
+            'no_hp_pengirim' => 'string',
         ]);
 
         if ($validator->fails()) {
@@ -58,6 +63,11 @@ class PemesananController extends Controller
             'status' => 'required|in:On Progress,Selesai',
             'nama_penerima' => 'required|string',
             'id_kurir' => 'required|exists:users,id_user',
+            'no_hp_penerima' => 'string',
+            'jenis_paket' => 'string',
+            'keterangan' => 'string',
+            'nama_pengirim' => 'string',
+            'no_hp_pengirim' => 'string',
         ]);
 
         if ($validator->fails()) {
