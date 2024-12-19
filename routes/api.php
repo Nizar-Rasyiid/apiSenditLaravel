@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ use App\Http\Controllers\PaymentController;
 |
 */
 
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
 Route::get('/user/{id}', [UserController::class, 'getUser']);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
@@ -32,8 +35,8 @@ Route::prefix('pemesanan')->group(function () {
           Route::delete('/{id}', [PemesananController::class, 'destroy']);
           Route::patch('/{id}/status', [PemesananController::class, 'updateStatus']);
       });
-Route::get('/payment/{id}', [PaymentController::class, 'getPayment']);
+Route::get('/payments/{id}', [PaymentController::class, 'show']);
 Route::get('/payments', [PaymentController::class, 'index']);
-Route::post('/payment', [PaymentController::class, 'create']);
-Route::put('/payment/{id}', [PaymentController::class, 'update']);
-Route::delete('/payment/{id}', [PaymentController::class, 'delete']);
+Route::post('/payments', [PaymentController::class, 'create']);
+Route::put('/payments/{id}', [PaymentController::class, 'update']);
+Route::delete('/payments/{id}', [PaymentController::class, 'delete']);

@@ -70,8 +70,8 @@ class PemesananController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'id_user' => 'required|exists:users,id',
-                'id_kurir' => 'required|exists:users,id',
+                'id_user' => 'required|exists:users,id_user',
+                'id_kurir' => 'required|exists:users,id_user',
                 'jarak' => 'required|numeric',
                 'lokasi_jemput' => 'required|string',
                 'lokasi_tujuan' => 'required|string',
@@ -130,8 +130,8 @@ class PemesananController extends Controller
             $pemesanan = Pemesanan::findOrFail($id);
             
             $validator = Validator::make($request->all(), [
-                'id_user' => 'exists:users,id',
-                'id_kurir' => 'exists:users,id',
+                'id_user' => 'exists:users,id_user',
+                'id_kurir' => 'exists:users,id_user',
                 'jarak' => 'numeric',
                 'lokasi_jemput' => 'string',
                 'lokasi_tujuan' => 'string',
@@ -141,7 +141,9 @@ class PemesananController extends Controller
                 'jenis_paket' => 'string',
                 'keterangan' => 'string',
                 'nama_pengirim' => 'string',
-                'no_hp_pengirim' => 'string'
+                'no_hp_pengirim' => 'string',
+                'total_harga' => 'numeric',
+                'metode_pembayaran' => 'string'
             ]);
 
             if ($validator->fails()) {

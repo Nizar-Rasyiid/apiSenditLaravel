@@ -24,7 +24,9 @@ class Pemesanan extends Model
         'jenis_paket',
         'keterangan',
         'nama_pengirim',
-        'no_hp_pengirim'
+        'no_hp_pengirim',
+        'total_harga',
+        'metode_pembayaran'
     ];
 
     // Relasi dengan User (pengirim)
