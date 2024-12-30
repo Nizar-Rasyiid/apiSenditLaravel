@@ -26,7 +26,8 @@ class Pemesanan extends Model
         'nama_pengirim',
         'no_hp_pengirim',
         'total_harga',
-        'metode_pembayaran'
+        'metode_pembayaran',
+        'updated_lokasi'
     ];
 
     // Relasi dengan User (pengirim)

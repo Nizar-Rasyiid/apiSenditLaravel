@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController as AuthForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +20,12 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/forgot-password', [AuthForgotPasswordController::class, 'sendResetLinkEmail']);
+Route::post('/password-reset', [ResetPasswordController::class, 'reset'])->name('password.reset');
+
+
 Route::get('/user/{id}', [UserController::class, 'getUser']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
@@ -39,6 +45,6 @@ Route::prefix('pemesanan')->group(function () {
       });
 Route::get('/payments/{id}', [PaymentController::class, 'show']);
 Route::get('/payments', [PaymentController::class, 'index']);
-Route::post('/payments', [PaymentController::class, 'create']);
+Route::post('/payments', [PaymentController::class, 'store']);
 Route::put('/payments/{id}', [PaymentController::class, 'update']);
-Route::delete('/payments/{id}', [PaymentController::class, 'delete']);
+Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);

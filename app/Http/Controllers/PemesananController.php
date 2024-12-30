@@ -143,7 +143,8 @@ class PemesananController extends Controller
                 'nama_pengirim' => 'string',
                 'no_hp_pengirim' => 'string',
                 'total_harga' => 'numeric',
-                'metode_pembayaran' => 'string'
+                'metode_pembayaran' => 'string',
+                'updated_lokasi' => 'string'
             ]);
 
             if ($validator->fails()) {
