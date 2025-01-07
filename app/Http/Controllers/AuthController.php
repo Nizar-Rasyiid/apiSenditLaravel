@@ -51,7 +51,17 @@ class AuthController extends Controller
             $user->api_token = $token; // Store the token in the database
             $user->save();
 
-            return response()->json(['token' => $token], 200);
+            return response()->json([
+                'token' => $token,
+                'user' => [
+                    'id_user' => $user->id_user,
+                    'nama' => $user->nama, // Username
+                    'email' => $user->email,
+                    'alamat' => $user->alamat,
+                    'no_hp' => $user->no_hp,
+                    'role' => $user->role   
+                ]
+            ],200);
         }
 
         return response()->json(['error' => 'Unauthorized'], 401);

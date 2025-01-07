@@ -9,6 +9,36 @@ use Illuminate\Support\Facades\Auth;
 
 class PemesananController extends Controller
 {
+    /**
+     * Menampilkan semua data pemesanan berdasarkan id_user
+     */
+    public function getPemesananByUserId($id_user)
+    {
+        try {
+            $pemesanan = Pemesanan::where('id_user', $id_user)->get();
+            return response()->json($pemesanan, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Gagal mengambil data pemesanan',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+    /**
+     * Menampilkan semua data pemesanan berdasarkan id_kurir
+     */
+    public function getPemesananByKurirId($id_kurir)
+    {
+        try {
+            $pemesanan = Pemesanan::where('id_kurir', $id_kurir)->get();
+            return response()->json($pemesanan, 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Gagal mengambil data pemesanan',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
     public function create(Request $request)  // Mengubah store menjadi create
     {
         try {

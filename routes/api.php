@@ -42,6 +42,8 @@ Route::prefix('pemesanan')->group(function () {
           Route::put('/{id}', [PemesananController::class, 'update']);
           Route::delete('/{id}', [PemesananController::class, 'destroy']);
           Route::patch('/{id}/status', [PemesananController::class, 'updateStatus']);
+          Route::get('/pemesanan/{id_user}', [PemesananController::class, 'getPemesananByUserId']); 
+          Route::get('/pemesanankurir/{id_kurir}', [PemesananController::class, 'getPemesananByKurirId']); 
       });
 Route::get('/payments/{id}', [PaymentController::class, 'show']);
 Route::get('/payments', [PaymentController::class, 'index']);

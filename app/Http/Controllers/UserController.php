@@ -16,7 +16,10 @@ class UserController extends Controller
     {
         $user = User::where('id_user', $id_user)->first();
         if ($user) {
-            return response()->json($user, 200);
+            return response()->json([
+            'user' => $user,
+            'password' => $user->password
+            ], 200);    
         } else {
             return response()->json(['message' => 'User not found'], 404);
         }
