@@ -57,9 +57,11 @@ class AuthController extends Controller
                     'id_user' => $user->id_user,
                     'nama' => $user->nama, // Username
                     'email' => $user->email,
+                    'username' => $user->username,
                     'alamat' => $user->alamat,
                     'no_hp' => $user->no_hp,
-                    'role' => $user->role   
+                    'role' => $user->role,
+                    'image' => $user->image ? url('storage/images/' . $user->image) : null,
                 ]
             ],200);
         }

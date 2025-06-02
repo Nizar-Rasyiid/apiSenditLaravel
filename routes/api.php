@@ -27,8 +27,10 @@ Route::post('/password-reset', [ResetPasswordController::class, 'reset'])->name(
 
 
 Route::get('/user/{id}', [UserController::class, 'getUser']);
+Route::put('/userUpdate/{id}', [UserController::class, 'update']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
+Route::post('/user/{id_user}/upload-image', [UserController::class, 'uploadImage']);
 
 // Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::get('/pemesanans', [PemesananController::class, 'index']);
