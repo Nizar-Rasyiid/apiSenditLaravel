@@ -32,7 +32,6 @@ Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
 Route::post('/user/{id_user}/upload-image', [UserController::class, 'uploadImage']);
 
-
 // Route::get('/pemesanan/{id}', [PemesananController::class, 'show']);
 Route::get('/pemesanans', [PemesananController::class, 'index']);
 Route::post('/pemesanan', [PemesananController::class, 'store']);
